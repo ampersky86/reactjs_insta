@@ -9,7 +9,6 @@ export  default  class InstaService {
         if (!res.ok) {
             throw new Error(`Could not fetch ${url}, received ${res.status}`)
         }
-
         return res.json();
     };
 
@@ -29,7 +28,5 @@ export  default  class InstaService {
             alt: post.alt,
             id: post.id
         }
-
-
     }
 }

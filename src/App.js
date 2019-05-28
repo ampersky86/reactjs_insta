@@ -15,10 +15,7 @@ function App() {
               <Route path='/profile' component={Profile} exact />
           </div>
       </Router>
-
-
   )
-
 }
 
 export default App;

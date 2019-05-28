@@ -2,15 +2,12 @@ import React, {Component} from 'react';
 import InstaService from '../Services/instaservice';
 import ErrorMessage from './ErrorMessages';
 
-
 export default class Palette extends Component {
     InstaService = new InstaService();
     state = {
         photos: [],
         error:false
     };
-
-
 
     componentDidMount() {
         this.updatePhotos();
@@ -44,7 +41,6 @@ export default class Palette extends Component {
         })
     }
 
-
     render () {
         const {error, photos} = this.state;
         if (error){
@@ -52,12 +48,10 @@ export default class Palette extends Component {
         }
 
         const items = this.renderItems(photos);
-
         return (
             <div className='palette'>
                 {items}
             </div>
         )
     }
-
 }

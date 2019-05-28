@@ -3,7 +3,6 @@ import Post from './Post';
 import InstaService from '../Services/instaservice';
 import ErrorMessage from './ErrorMessages'
 
-
 export default class Posts extends Component {
     InstaService = new InstaService();
     state = {
@@ -37,14 +36,11 @@ export default class Posts extends Component {
      renderItems(arr) {
         return arr.map((item) =>{
             const {name, altname, photo, src, alt, descr, id} = item;
-
             return (
-                <div >
+                <div key={id} >
                     <Post
-                        key={id}
                         photo={photo}
                         altname={altname}
-                        name={name}
                         min
                         src={src}
                         alt={alt}
@@ -52,8 +48,6 @@ export default class Posts extends Component {
                         name={name}
                     />
                 </div>
-
-
             )
         })
     }
@@ -65,7 +59,6 @@ export default class Posts extends Component {
         }
 
         const items = this.renderItems(posts);
-
         return (
             <div className='left'>
                 {items}
