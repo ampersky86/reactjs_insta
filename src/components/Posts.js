@@ -2,16 +2,19 @@ import React, {Component} from 'react';
 import Post from './Post';
 import InstaService from '../Services/instaservice';
 import ErrorMessage from './ErrorMessages'
+import Loading from './Loading'
 
 export default class Posts extends Component {
     InstaService = new InstaService();
     state = {
         posts: [],
-        error: false
+        error: false,
+        loading: false
     };
 
     componentDidMount() {
-        this.updatePosts();
+        this.onPostsLoading();
+        setTimeout(this.updatePosts.bind(this), 2000);
     }
 
     updatePosts() {
@@ -23,8 +26,15 @@ export default class Posts extends Component {
     onPostsLoaded = (posts) => {
         this.setState({
             posts: posts,
-            error: false
+            error: false,
+            loading:false
         })
+    };
+
+    onPostsLoading = () => {
+       this.setState({
+           loading:true
+       })
     };
 
     onError = (err) => {
@@ -37,15 +47,15 @@ export default class Posts extends Component {
         return arr.map((item) =>{
             const {name, altname, photo, src, alt, descr, id} = item;
             return (
-                <div key={id} >
+                <div key={id}>
                     <Post
                         photo={photo}
                         altname={altname}
+                        name={name}
                         min
                         src={src}
                         alt={alt}
                         descr={descr}
-                        name={name}
                     />
                 </div>
             )
@@ -53,9 +63,12 @@ export default class Posts extends Component {
     }
 
     render () {
-        const {error, posts} = this.state;
+        const {error, posts, loading} = this.state;
         if (error){
             return <ErrorMessage/>
+        }
+        if (loading) {
+            return <Loading/>
         }
 
         const items = this.renderItems(posts);
