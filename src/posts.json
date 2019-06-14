@@ -53,6 +53,16 @@
             "alt": "Smoothie",
             "descr": "Hello! If you want to drink some delicious smoothies - just call me!",
             "id": "6"
+        },
+
+        {
+            "name": "smoothiemaker",
+            "altname": "Smoothie",
+            "photo": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-how-to-make-a-smoothie-horizontal-1542310071.png?crop=0.803xw:0.923xh;0.116xw,0.00510xh&resize=480:*",
+            "src": "https://www.culinaryhill.com/wp-content/uploads/2015/01/Caribbean-Passion-Smoothie-Jamba-Juice-Copycat-Culinary-Hill-square.jpg",
+            "alt": "Smoothie",
+            "descr": "Hello! If you want to drink some delicious smoothies - just call me!",
+            "id": "6"
         }
     ]
 }
